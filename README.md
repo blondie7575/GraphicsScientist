@@ -25,7 +25,7 @@ Your PNG file can contain any number of sprites, animation frames, and other ima
 
 **IMPORTANT**: The PNG file *must not have an alpha channel*. Many art programs produce alpha channels by default for PNG files. Make sure yours is configured to not do this.
 
-![Sample art](https://github.com/blondie7575/GraphicsScientist/blob/main/SampleCode/SpriteSheet.png)
+<img src="[drawing.jpg](https://github.com/blondie7575/GraphicsScientist/blob/main/SampleCode/SpriteSheet.png)" alt="Sample art" width="560" height="384"/>
 
 ## Resolutions
 
