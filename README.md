@@ -79,7 +79,7 @@ runFrame0_Shift6:
 
 The top is a little struct that has the width and height of the sprite, followed by a lookup table to each of the "shifts". In Apple II hi-res graphics, rendering a sprite on a specific pixel requires a lot of math because there are 3.5 pixels per byte. Every fourth pixel is split across two bytes, and the amount of bit-shift needed when you copy bytes varies by which horizontal pixel you want your sprite to be on. This is a lot of expensive math (involving a lot of dividing and modulous of seven), but there's a better way. You can simply store seven copies of your sprite, each "pre-shifted" within the bytes to land on the correct pixels. This way your blitting is always byte-aligned (and fast), but you can still place your artwork on any pixel. TGS creates these shifts for you, and provides a lookup table for you to choose the correct one in your blitter at runtime. Here's an example of using that lookup table.
 
-First we figure out which starting byte the sprite will land based on the desired horizontal pixel. This requires dividing by seven, for which we use the first lookup table provided by TGS.
+First we figure out which starting byte the sprite will land on, based on the desired horizontal pixel. This requires dividing by seven, for which we use the first lookup table provided by TGS.
 
 ```blitSprite:
 	ldy RENDERPOS_X			; Calculate horizontal byte to render on
@@ -109,7 +109,7 @@ Be sure to refer to the included sample code to see all of that in context. Thes
 
 ## The Sprite Geometry File
 
-This a simple CSV file which you provide to TGS to tell it where all your sprites are in the PNG, and what kind of options you'd like for each one. Here is the sample included:
+This is a simple CSV file which you provide to TGS to tell it where all your sprites are in the PNG, and what kind of options you'd like for each one. Here is the sample included:
 
 ```
 runFrame0,1,1,9,13,280,6,0
